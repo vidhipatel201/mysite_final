@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+<meta charset="UTF-8">
+<title>Online Store APP</title>
+</head>
+<body>
+	{% extends 'myapp/base.html' %} {% block body_block %}
+	<br>
+	<div class="container"> 
+	{% if cat_list %}
+	<h2>List of Categories</h2>
+	<div class="list-group">
+		{% for cat in cat_list %}
+		<a href='{{cat.id}}' class="list-group-item list-group-item-action">{{ cat.name}}</a>
+	 {% endfor %}
+	</div>
+	{% else %}
+	<strong>There are no available categories!</strong> {% endif %}
+	<br>
+	<h2>Top 5 Expensive products</h2>
+	<div class="list-group">
+		{% for prod in expProd %}
+		<li class="list-group-item">{{ prod.name}}</li> {% endfor %}
+	</div>
+	<br>
+	<h3>Last Log in : {{ last_log }} </h3>
+	
+	{% endblock %}
+	<br>
+	<p>
+		<a href="/myapp/about">About page - hardcoded URL</a>
+	</p>
+	<p>
+		<a href="{% url 'myapp:about' %}">About page - URL NameSpace</a>
+	</p>
+	</div>
+</body>
+</html>

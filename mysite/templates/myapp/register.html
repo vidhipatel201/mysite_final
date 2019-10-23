@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+</head>
+<body>
+	{% extends 'myapp/base.html' %} {% block body_block1 %}
+	<br>
+	<div class="container">
+		{% if msg %}
+		<div>
+			<h4>{{ msg }}</h4>
+		</div>
+		{% endif %}
+
+		<form class="form" method="post">
+			{% csrf_token %}
+			<table border="1">{{ form.as_p }}
+			</table>
+			<button type="submit">Register</button>
+		</form>
+
+
+		<p>
+			<a href="{% url 'myapp:user_login' %}">Alredy Registerd. Sign In</a>
+		</p>
+	</div>
+	{% endblock %}
+</body>
+</html>

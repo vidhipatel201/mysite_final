@@ -1,0 +1,19 @@
+{% extends 'myapp/base.html' %} {% block body_block %}
+<div class="container">
+	<br>
+	<h2>{{ Client.name }}</h2>
+	<p>Total Order: {{ order.count }}</p>
+	{% if order %} {% for o in order %}
+	<ol>
+		<p>Product Name: {{ o.product.name}}
+		<p>
+		<p>Quantity ordered: {{ o.num_units}}
+		<p>
+		<p>Order Status: {{ o.get_order_status_display}}
+		<p>
+	</ol>
+	{% endfor %} {% else %}
+	<h2>Oops! You dont have any order right now..</h2>
+	{% endif %}
+</div>
+{% endblock %}

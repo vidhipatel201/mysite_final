@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+</head>
+<body>
+	{% extends 'myapp/base.html' %} {% block body_block %}
+	<br>
+	<div class="container">
+		{% if prod %}
+		<h2>Product Name: {{ prod.name}}</h2>
+		<br />
+		<h2>Product Price: {{ prod.price}}</h2>
+		<br />
+		<h2>Product Name: {{ prod.name}}</h2>
+		<br /> {% else %} <strong>There are no available categories!</strong>
+		{% endif %} {% if form %}
+		<form method="post">
+			{% csrf_token %}
+			<table border="1">{{ form }}
+			</table>
+			<br>
+			<button type="submit">Submit</button>
+		</form>
+		{% endif %}
+	</div>
+	{% endblock %}
+</body>
+</html>

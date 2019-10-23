@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Onine App</title>
+</head>
+<body>
+	{% extends 'myapp/base.html' %} {% block body_block %}
+	<div class="container">
+
+		<h1>This is About page</h1>
+		<h2>Total no of visits : {{ no_of_visit }}</h2>
+	</div>
+	{% endblock %}
+	<p>
+		<a href="{% url 'myapp:index' %}">Index page using URL Namespace</a>
+	</p>
+	<p>
+		<a href="/myapp/">Index page using hardcoded URL</a>
+	</p>
+</body>
+</html>

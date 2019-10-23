@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+</head>
+<body>
+	{% extends 'myapp/base.html' %} {% block body_block %}
+	<br>
+	<div class="container">
+		{% if prodlist %}
+		<h2>List of Products</h2>
+		<ol>
+			{% for prod in prodlist %}
+			<a href="{{ prod.id}}"><li>{{ prod.name}} : {{ prod.stock}}</li></a>
+			<br />{% endfor %}
+		</ol>
+		{% else %} <strong>There are no available categories!</strong> {% endif %} 
+		<a href="{% url 'myapp:place_order' %}">
+		<h2>Place New Order Here!</h2></a>
+	</div>
+	{% endblock %}
+</body>
+</html>
